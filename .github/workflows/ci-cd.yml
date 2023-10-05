@@ -52,7 +52,7 @@ jobs:
       - name: Push Docker image to GitHub Packages
         run: |
           IMAGE_TAG=$(echo ${GITHUB_REF##*/} | tr '[:upper:]' '[:lower:]')
-          docker push docker.pkg.github.com/jesperschon/to-do-list-grupp-7-jesper1/min-app:$IMAGE_TAG
+          docker build -t docker.pkg.github.com/jesperschon/to-do-list-grupp-7/min-app:$IMAGE_TAG -f Dockerfile .
 
   fake_deploy:
     needs: build_and_push
